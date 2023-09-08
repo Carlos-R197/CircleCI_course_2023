@@ -1,51 +1,18 @@
 version: 2.1
 
+parameters:
+    name:
+        type: string
+        default: juan
+
 jobs:
     saluda:
         docker:
             - image: cimg/base:stable
         steps:
-            - run: echo hola
-    despidete:
-        docker:
-            - image: cimg/base:stable
-        steps:
-            - run: echo pre adios
-            - run: echo adios
-            - run: echo post adios
+            - run: echo hola << pipeline.parameters.name >>
 
 workflows:
     workflow1:
         jobs:
             - saluda
-            - despidete
-    workflow2:
-        jobs:
-            - saluda
-            - despidete:
-                requires:
-                    - saluda
-    workflow3:
-        jobs:
-            - saluda
-            - approve:
-                type: approval
-                requires:
-                    - saluda
-            - despidete:
-                requires: 
-                    - approve
-    nightly:
-        triggers:
-            - schedule:
-                cron: "27 13 * * *"
-                filters:
-                    branches:
-                        only:
-                            main
-        jobs:
-            - saluda
-            - despidete:
-                requires:
-                    - saluda
-    
