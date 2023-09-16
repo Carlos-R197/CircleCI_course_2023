@@ -18,7 +18,7 @@ jobs:
             - image: cimg/base:stable
         steps:
             - dime_la_hora_y_espera
-            - run echo adios
+            - run: echo adios
             - dime_la_hora_y_espera
 
 workflows:
