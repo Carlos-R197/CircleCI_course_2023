@@ -13,6 +13,7 @@ jobs:
             - image: ubuntu:latest
         steps:
             - install-aws-cli
+            - run: find
 
 workflows:
     workflow1:
