@@ -1,0 +1,18 @@
+version: 2.1
+
+parameters:
+    name:
+        type: string
+        default: juan
+
+jobs:
+    saluda:
+        docker:
+            - image: cimg/base:stable
+        steps:
+            - run: echo hola << pipeline.parameters.name >>
+
+workflows:
+    workflow1:
+        jobs:
+            - saluda
