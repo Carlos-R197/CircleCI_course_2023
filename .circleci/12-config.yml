@@ -3,7 +3,7 @@ version: 2.1
 commands:
     install-aws-cli:
         steps:
-            - run: echoa instalando aws cli
+            - run: echo instalando aws cli
             - checkout
             - run: ls -la
 
@@ -14,6 +14,7 @@ jobs:
         steps:
             - install-aws-cli
             - run: find
+            - run: echoa dlld
 
 workflows:
     workflow1:
