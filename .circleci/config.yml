@@ -1,22 +1,14 @@
 version: 2.1
 
-commands:
-    install-aws-cli:
-        steps:
-            - run: echo instalando aws cli
-            - checkout
-            - run: ls -la
-
 jobs:
-    install-dependencies:
+    saluda:
         docker:
             - image: ubuntu:latest
         steps:
-            - install-aws-cli
-            - run: find
-            - run: echoa dlld
+            - run: echo hola $nombre
+            - run: echo Mi id de job es: $CIRCLE_WORKFLOW_JOB_ID
 
 workflows:
     workflow1:
         jobs:
-            - install-dependencies
+            - saluda
