@@ -6,7 +6,7 @@ jobs:
             - image: ubuntu:latest
         steps:
             - run: echo hola $nombre
-            - run: echo Mi id de job es: $CIRCLE_WORKFLOW_JOB_ID
+            - run: echo Mi id de job es $CIRCLE_WORKFLOW_JOB_ID
 
 workflows:
     workflow1:
