@@ -5,7 +5,14 @@ jobs:
         docker:
             - image: ubuntu:latest
         steps:
-            - run: echo hola $nombre
+            - run: 
+                command: echo hola $NOMBRE
+                environment:
+                    NOMBRE: José
+            - run: ls
+            - run:
+                command: ls
+                name: nombre de mi comando
             - run: echo Mi id de job es $CIRCLE_WORKFLOW_JOB_ID
 
 workflows:
